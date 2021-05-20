@@ -13,7 +13,7 @@ public class Employer {
     }
 
     public Employer(String value) {
-        this();
+        this(); //how does this line call the first constructor? Just because it is the same method (overloading?)
         this.value = value;
     }
 
