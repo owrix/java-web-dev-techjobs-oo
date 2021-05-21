@@ -54,6 +54,22 @@ public class Job {
         if (this.name == null && this.employer == null && this.location == null && this.positionType == null && this.coreCompetency == null) {
             return "OOPS! This job does not seem to exist.";
         }
+        if (this.name.isEmpty()) {                      //.isEmpty vs == "" or == null lost me an hour
+            this.name = "Data not available";
+        }
+        if (this.employer.isEmpty()) {                  //difference between .isEmpty and null?
+            this.employer = "Data not available";
+        }
+        if (this.location.isEmpty()) {
+            this.location = "Data not available";
+        }
+        if (this.positionType.isEmpty()) {
+            this.positionType = "Data not available";
+        }
+        if (this.coreCompetency.isEmpty()) {
+            this.coreCompetency = "Data not available";
+        }
+
         return (
                 " \n" +
                 "ID: " + this.getId() + "\n" +
@@ -124,4 +140,6 @@ public class Job {
     public void setCoreCompetency(String coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+
 }

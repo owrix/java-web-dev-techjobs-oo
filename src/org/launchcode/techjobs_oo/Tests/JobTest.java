@@ -10,6 +10,7 @@ public class JobTest {
     Job testJob2;
     Job testJob3;
     Job testJob4;
+    Job testJob5;
 
     @Before
     public void createTestJobs(){
@@ -17,6 +18,7 @@ public class JobTest {
         testJob2 = new Job();
         testJob3 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
         testJob4 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
+        testJob5 = new Job("", "", "Desert", "", "Persistence");
     }
 
     @Test
@@ -45,7 +47,7 @@ public class JobTest {
     @Test
     public void testToStringOutput(){
         assertTrue("First line should be blank", testJob3.toString().charAt(0) == ' ');
-//        assertTrue("Last line should be blank", testJob3.toString().charAt(testJob3.toString().length()-1) == ' ');
+        assertTrue("Last line should be blank", testJob3.toString().charAt(testJob3.toString().length()-1) == ' ');
 
         String expectedString =
                 " \n" +
@@ -59,8 +61,17 @@ public class JobTest {
 
         assertEquals(expectedString, testJob3.toString());
 
+        String testBlanksString =
+                        " \n" +
+                        "ID: 5\n" +
+                        "Name: Data not available\n" +
+                        "Employer: Data not available\n" +
+                        "Location: Desert\n" +
+                        "Position Type: Data not available\n" +
+                        "Core Competency: Persistence\n" +
+                        " ";
 
-
+        assertEquals(testBlanksString, testJob5.toString());
     }
 }
 
