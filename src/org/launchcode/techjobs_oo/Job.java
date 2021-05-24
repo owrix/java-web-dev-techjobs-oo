@@ -8,10 +8,10 @@ public class Job {
     private static int nextId = 1;
 
     private String name;
-    private String employer;
-    private String location;
-    private String positionType;
-    private String coreCompetency;
+    private Employer employer;
+    private Location location;
+    private PositionType positionType;
+    private CoreCompetency coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -22,8 +22,8 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, String employer, String location, String positionType,
-               String coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType,
+               CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -57,17 +57,17 @@ public class Job {
         if (this.name.isEmpty()) {                      //.isEmpty vs == "" or == null lost me an hour
             this.name = "Data not available";
         }
-        if (this.employer.isEmpty()) {                  //difference between .isEmpty and null?
-            this.employer = "Data not available";
+        if (this.employer.getValue() == null || this.employer.getValue().isEmpty()) {                  //difference between .isEmpty and null?
+            this.employer.setValue("Data not available");
         }
-        if (this.location.isEmpty()) {
-            this.location = "Data not available";
+        if (this.location.getValue() == null || this.location.getValue().isEmpty()) {
+            this.location.setValue("Data not available");
         }
-        if (this.positionType.isEmpty()) {
-            this.positionType = "Data not available";
+        if (this.positionType.getValue() == null || this.positionType.getValue().isEmpty()) {
+            this.positionType.setValue("Data not available");
         }
-        if (this.coreCompetency.isEmpty()) {
-            this.coreCompetency = "Data not available";
+        if (this.coreCompetency.getValue() == null || this.coreCompetency.getValue().isEmpty()) {
+            this.coreCompetency.setValue("Data not available");
         }
 
         return (
@@ -109,35 +109,35 @@ public class Job {
         this.name = name;
     }
 
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public String getPositionType() {
+    public PositionType getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(String positionType) {
+    public void setPositionType(PositionType positionType) {
         this.positionType = positionType;
     }
 
-    public String getCoreCompetency() {
+    public CoreCompetency getCoreCompetency() {
         return coreCompetency;
     }
 
-    public void setCoreCompetency(String coreCompetency) {
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
 

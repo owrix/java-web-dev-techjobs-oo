@@ -2,7 +2,8 @@ package org.launchcode.techjobs_oo.Tests;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.launchcode.techjobs_oo.Job;
+import org.launchcode.techjobs_oo.*;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -16,9 +17,12 @@ public class JobTest {
     public void createTestJobs(){
         testJob1 = new Job();
         testJob2 = new Job();
-        testJob3 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
-        testJob4 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
-        testJob5 = new Job("", "", "Desert", "", "Persistence");
+        testJob3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        testJob4 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        testJob5 = new Job("", new Employer(""), new Location("Desert"),
+                new PositionType(""), new CoreCompetency("Persistence"));
     }
 
     @Test
@@ -30,10 +34,10 @@ public class JobTest {
     @Test
     public void testJobConstructor(){
         assertEquals("Product Tester", testJob3.getName());
-        assertEquals("ACME", testJob3.getEmployer());
-        assertEquals("Desert", testJob3.getLocation());
-        assertEquals("Quality Control", testJob3.getPositionType());
-        assertEquals("Persistence", testJob3.getCoreCompetency());
+        assertEquals("ACME", testJob3.getEmployer().getValue());
+        assertEquals("Desert", testJob3.getLocation().getValue());
+        assertEquals("Quality Control", testJob3.getPositionType().getValue());
+        assertEquals("Persistence", testJob3.getCoreCompetency().getValue());
 
         assertTrue(testJob3 instanceof Job);
     }
